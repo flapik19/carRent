@@ -16,8 +16,17 @@ func main() {
 	}
 	fmt.Println("Подключение успешно!", conn)
 
-	h := handlers.DbConn{С: conn}
+	h := handlers.DbConn{C: conn}
 	r := gin.Default()
+
 	r.GET("/clients", h.GetClients)
+	r.POST("/clients", h.CreateClient)
+	r.DELETE("/clients/:id", h.DeleteClient)
+	r.PUT("/clients/:id", h.UpdateClient)
+
+	r.GET("/car", h.GetCars)
+
+	r.GET("/rent", h.GetRent)
+
 	r.Run(":8080")
 }
