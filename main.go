@@ -5,6 +5,7 @@ import (
 	"carRent/handlers"
 	"fmt"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,6 +19,8 @@ func main() {
 
 	h := handlers.DbConn{C: conn}
 	r := gin.Default()
+
+	r.Use(cors.Default())
 
 	r.GET("/clients", h.GetClients)
 	r.POST("/clients", h.CreateClient)
