@@ -25,8 +25,14 @@ func main() {
 	r.PUT("/clients/:id", h.UpdateClient)
 
 	r.GET("/car", h.GetCars)
+	r.POST("/car", h.CreateCar)
+	r.DELETE("/car/:id", h.DeleteCar)
+	r.PUT("/car/:id", h.UpdateCar)
 
 	r.GET("/rent", h.GetRent)
+	r.POST("/rent", h.CreateRent)
+	r.DELETE("/rent/:id", h.DeleteRent)
+	r.PUT("/rent/:id", h.UpdateRent)
 
 	r.Run(":8080")
 }

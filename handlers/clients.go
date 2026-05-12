@@ -45,7 +45,6 @@ func (h *DbConn) CreateClient(c *gin.Context) {
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	}
-	fmt.Println("Создаём клиента:", client)
 	c.JSON(http.StatusCreated, client)
 }
 
