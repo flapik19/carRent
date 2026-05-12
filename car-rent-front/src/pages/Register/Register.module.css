@@ -1,0 +1,113 @@
+.page {
+    min-height: 100vh;
+    background: #0a0b0e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+            radial-gradient(ellipse at 50% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+}
+
+.form {
+    background: rgba(24, 27, 31, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 24px;
+    border: 1px solid #25282d;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.backBtn {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    color: #8b8fa3;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.backBtn:hover {
+    color: #ffffff;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.input {
+    padding: 16px;
+    background: #111315;
+    border: 1px solid #25282d;
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input::placeholder {
+    color: #6b6b6b;
+}
+
+.button {
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+.linkText {
+    text-align: center;
+    color: #8b8fa3;
+    font-size: 14px;
+    margin: 0;
+}
+
+.link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #764ba2;
+}

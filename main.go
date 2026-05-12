@@ -32,6 +32,8 @@ func main() {
 	r.DELETE("/car/:id", h.DeleteCar)
 	r.PUT("/car/:id", h.UpdateCar)
 
+	r.POST("/login", h.GetLogin)
+
 	r.GET("/rent", h.GetRent)
 	r.POST("/rent", h.CreateRent)
 	r.DELETE("/rent/:id", h.DeleteRent)

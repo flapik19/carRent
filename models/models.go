@@ -32,3 +32,11 @@ type Rent struct {
 	ClientId  int    `json:"client_id"`
 	StaffId   int    `json:"staff_id"`
 }
+
+type User struct {
+	UserId   int    `json:"user_id"`
+	Login    string `json:"login"`
+	Password string `json:"password"`
+	Role     string `json:"role"`
+	ClientId int    `json:"client_id"`
+}

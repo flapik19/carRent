@@ -1,0 +1,40 @@
+.card {
+    background: #181b1f;
+    border: 1px solid #25282d;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #e1e1e1;
+}
+
+.card p {
+    color: #a0a0a0;
+    margin: 4px 0;
+}
+
+.card button {
+    margin-top: 12px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.card button:hover {
+    opacity: 0.9;
+}
