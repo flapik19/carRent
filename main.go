@@ -33,6 +33,7 @@ func main() {
 	r.PUT("/car/:id", h.UpdateCar)
 
 	r.POST("/login", h.GetLogin)
+	r.POST("/register", h.Register)
 
 	r.GET("/rent", h.GetRent)
 	r.POST("/rent", h.CreateRent)

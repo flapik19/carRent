@@ -15,13 +15,11 @@ func Connect() (*sql.DB, error) {
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
-	} else {
-		err = res.Ping()
-		if err != nil {
-			fmt.Println(err)
-			return nil, err
-		}
-		return res, nil
+	}
+	err = res.Ping()
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
 	}
 	return res, nil
 }
