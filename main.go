@@ -35,10 +35,16 @@ func main() {
 	r.POST("/login", h.GetLogin)
 	r.POST("/register", h.Register)
 
+	r.POST("/rentcar", h.CreateRentCar)
+
 	r.GET("/rent", h.GetRent)
 	r.POST("/rent", h.CreateRent)
 	r.DELETE("/rent/:id", h.DeleteRent)
 	r.PUT("/rent/:id", h.UpdateRent)
+
+	// Отчеты
+	r.GET("/reports/cars", h.GetCarsReport)
+	r.GET("/reports/client-rents", h.GetClientRentsReport)
 
 	r.Run(":8080")
 }

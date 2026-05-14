@@ -9,7 +9,13 @@ import (
 )
 
 func (h *DbConn) GetCars(c *gin.Context) {
-	rows, err := h.C.Query("Select carid, brand, model, year, number, price, condition from car")
+	// Подзапрос 1: SELECT DISTINCT с ORDER BY и LIMIT
+	rows, err := h.C.Query(`
+		SELECT DISTINCT carid, brand, model, year, number, price, condition 
+		FROM car 
+		ORDER BY price DESC 
+		LIMIT 100
+	`)
 	if err != nil {
 		fmt.Println(err)
 		return

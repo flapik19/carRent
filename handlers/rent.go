@@ -9,7 +9,13 @@ import (
 )
 
 func (h *DbConn) GetRent(c *gin.Context) {
-	rows, err := h.C.Query("SELECT rentid, startdate, enddate, clientid, staffid FROM rent")
+	// Подзапрос 3: SELECT с ORDER BY DESC и LIMIT
+	rows, err := h.C.Query(`
+		SELECT rentid, startdate, enddate, clientid, staffid 
+		FROM rent 
+		ORDER BY rentid DESC 
+		LIMIT 50
+	`)
 
 	if err != nil {
 		fmt.Println(err)
@@ -36,9 +42,10 @@ func (h *DbConn) CreateRent(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	_, err = h.C.Exec("INSERT INTO rent (rentid,startdate,enddate,clientid ,staffid ) VALUES ($1, $2, $3, $4, $5)", rent.RentId, rent.Startdate, rent.Enddate, rent.ClientId, rent.StaffId)
+	err = h.C.QueryRow("INSERT INTO rent (startdate,enddate,clientid ,staffid ) VALUES ($1, $2, $3, $4) RETURNING rentid", rent.Startdate, rent.Enddate, rent.ClientId, rent.StaffId).Scan(&rent.RentId)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
 	}
 	c.JSON(http.StatusCreated, rent)
 }

@@ -14,7 +14,13 @@ type DbConn struct {
 }
 
 func (h *DbConn) GetClients(c *gin.Context) {
-	rows, err := h.C.Query("SELECT ClientId, Fio, Phone, Email, Birthday FROM clients")
+	// Подзапрос 2: SELECT с ORDER BY и OFFSET
+	rows, err := h.C.Query(`
+		SELECT ClientId, Fio, Phone, Email, Birthday 
+		FROM clients 
+		ORDER BY fio ASC 
+		OFFSET 0
+	`)
 	if err != nil {
 		fmt.Println(err)
 		return

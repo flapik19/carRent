@@ -1,6 +1,11 @@
 import styles from "./CarCard.module.css"
+import {useState} from "react";
+
+import RentModal from "../RentModal/RentModal.jsx";
 
 function CarCard({ car }) {
+    const [sost, setsost] = useState(false)
+
     return (
         <div className={styles.card}>
             <h2>
@@ -10,9 +15,16 @@ function CarCard({ car }) {
             <p>{car.year}</p>
             <p>{car.price} ₽</p>
 
-            <button>
+            <button onClick={() => setsost(true)}>
                 Арендовать
             </button>
+
+            {sost && (<RentModal
+                car ={car}
+                onclose={() => setsost(false)}
+                onSuccess={() => setsost(false)}
+            />
+            )}
         </div>
     )
 }

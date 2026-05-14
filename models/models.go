@@ -46,3 +46,10 @@ type Req struct {
 	Password string `json:"password"`
 	Email    string `json:"email"`
 }
+
+type RentCar struct {
+	RentID   int `json:"rentid"`
+	CarId    int `json:"carid"`
+	SumInDay int `json:"suminday"`
+	Days     int `json:"days"`
+}

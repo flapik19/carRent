@@ -12,6 +12,10 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if (!login.trim() || !email.trim() || !password.trim() || !retPass.trim()) {
+            alert("Заполните все поля")
+            return
+        }
         if (password === retPass) {
             fetch("http://localhost:8080/register", {
                 method: "POST",
@@ -20,7 +24,11 @@ function Register() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    navigate("/")
+                    if (data.error) {
+                        alert(data.error)
+                    } else {
+                        navigate("/login")
+                    }
                 })
         } else {
             alert("Пароли не совпадают")

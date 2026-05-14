@@ -15,11 +15,12 @@ function Login() {
             body: JSON.stringify({ login, password })
         })
             .then(res => res.json())
-            .then(role => {
-                console.log(role);
-                if (role === "admin") navigate("/admin")
-                else if (role === "manager") navigate("/manager")
-                else navigate("/home")
+            .then(data => {
+                localStorage.setItem("user", JSON.stringify({role:data.role, clientid: data.client}))
+                console.log(data.role);
+                if (data.role === "admin") navigate("/admin")
+                else if (data.role === "manager") navigate("/manager")
+                else navigate("/")
             })
     }
 

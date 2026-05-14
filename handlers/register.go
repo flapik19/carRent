@@ -18,6 +18,7 @@ func (h *DbConn) Register(c *gin.Context) {
 	hashPassword, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
 	}
 	var clientId int
 	err = h.C.QueryRow("select clientid from clients where email=$1", req.Email).Scan(&clientId)
